@@ -1,10 +1,10 @@
 package com.example.enmanuel_gomez_ap2_p2.domain.usecases
 
-import com.example.enmanuel_gomez_ap2_p2.domain.repository.EntidadRepository
+import com.example.enmanuel_gomez_ap2_p2.domain.repository.GastoRepository
 import javax.inject.Inject
 
-class GetEntidadesUseCase @Inject constructor(
-    private val repository: EntidadRepository
+class GetGastosUseCase @Inject constructor(
+    private val repository: GastoRepository
 ) {
-    operator fun invoke() = repository.getEntidades()
+    operator fun invoke() = repository.getGastos()
 }

@@ -1,11 +1,11 @@
 package com.example.enmanuel_gomez_ap2_p2.domain.usecases
 
-import com.example.enmanuel_gomez_ap2_p2.data.remote.dto.EntidadDto
-import com.example.enmanuel_gomez_ap2_p2.domain.repository.EntidadRepository
+import com.example.enmanuel_gomez_ap2_p2.domain.model.Gasto
+import com.example.enmanuel_gomez_ap2_p2.domain.repository.GastoRepository
 import javax.inject.Inject
 
-class SaveEntidadUseCase @Inject constructor(
-    private val repository: EntidadRepository
+class SaveGastoUseCase @Inject constructor(
+    private val repository: GastoRepository
 ) {
-    suspend operator fun invoke(entidad: EntidadDto) = repository.saveEntidad(entidad)
+    suspend operator fun invoke(gasto: Gasto) = repository.saveGasto(gasto)
 }
