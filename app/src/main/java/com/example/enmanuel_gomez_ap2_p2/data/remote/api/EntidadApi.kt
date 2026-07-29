@@ -1,23 +1,21 @@
 package com.example.enmanuel_gomez_ap2_p2.data.remote.api
 
-import com.example.enmanuel_gomez_ap2_p2.data.remote.dto.EntidadDto
+import com.example.enmanuel_gomez_ap2_p2.data.remote.dto.GastoRequest
+import com.example.enmanuel_gomez_ap2_p2.data.remote.dto.GastoResponse
 import retrofit2.Response
 import retrofit2.http.*
 
-interface EntidadApi {
+interface GastoApi {
 
-    @GET("entidades")
-    suspend fun getEntidades(): Response<List<EntidadDto>>
+    @GET("api/Gastos")
+    suspend fun getGastos(): Response<List<GastoResponse>>
 
-    @GET("entidades/{id}")
-    suspend fun getEntidadById(@Path("id") id: Int): Response<EntidadDto>
+    @GET("api/Gastos/{id}")
+    suspend fun getGastoById(@Path("id") id: Int): Response<GastoResponse>
 
-    @POST("entidades")
-    suspend fun saveEntidad(@Body entidad: EntidadDto): Response<EntidadDto>
+    @POST("api/Gastos")
+    suspend fun saveGasto(@Body gasto: GastoRequest): Response<GastoResponse>
 
-    @PUT("entidades/{id}")
-    suspend fun updateEntidad(@Path("id") id: Int, @Body entidad: EntidadDto): Response<EntidadDto>
-
-    @DELETE("entidades/{id}")
-    suspend fun deleteEntidad(@Path("id") id: Int): Response<Unit>
+    @PUT("api/Gastos/{id}")
+    suspend fun updateGasto(@Path("id") id: Int, @Body gasto: GastoRequest): Response<GastoResponse>
 }

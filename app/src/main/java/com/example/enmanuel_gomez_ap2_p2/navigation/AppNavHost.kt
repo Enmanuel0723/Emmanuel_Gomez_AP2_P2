@@ -6,15 +6,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.example.enmanuel_gomez_ap2_p2.presentation.entidad.EditScreen
-import com.example.enmanuel_gomez_ap2_p2.presentation.entidad.ListScreen
+import com.example.enmanuel_gomez_ap2_p2.presentation.gasto.EditScreen
+import com.example.enmanuel_gomez_ap2_p2.presentation.gasto.ListScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
 object ListScreenRoute
 
 @Serializable
-data class EditScreenRoute(val entidadId: Int? = null)
+data class EditScreenRoute(val gastoId: Int? = null)
 
 @Composable
 fun AppNavHost(
@@ -27,14 +27,14 @@ fun AppNavHost(
         composable<ListScreenRoute> {
             ListScreen(
                 onNavigateToEdit = { id ->
-                    navController.navigate(EditScreenRoute(entidadId = id))
+                    navController.navigate(EditScreenRoute(gastoId = id))
                 }
             )
         }
         composable<EditScreenRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<EditScreenRoute>()
             EditScreen(
-                entidadId = route.entidadId,
+                gastoId = route.gastoId,
                 onNavigateBack = { navController.navigateUp() }
             )
         }
